@@ -28,7 +28,7 @@ Co-Mentor: KS. Lê Quang Hiếu. Viện nghiên cứu và phát triển Viettel 
 
 Thành viên nhóm:
 1. Trần Sỹ Đạt - dattbbk@gmail.com 
-2. 
+
 2. Trần Hữu Cường - tranhuucuong91@gmail.com
-3. 
+
 3. Lê Công Tuấn - tuancnttbk93@gmail.com
