@@ -21,10 +21,12 @@ Link thử nghiệm hệ thống:
 
 
 Mentor: TS. Nguyễn Bình Minh. Giảng viên Viện công nghệ thông tin và truyền thông, Trường Đại học Bách Khoa Hà Nội. Email: minhnb[AT]soict.hust.edu.vn. Homepage: http://is.hust.edu.vn/~minhnb
+
 Co-Mentor: TS. Trần Việt Trung. Giảng viên Viện công nghệ thông tin và truyền thông, Trường Đại học Bách Khoa Hà Nội. Email: trungtv[AT]soict.hust.edu.vn. Homepage: http://is.hust.edu.vn/~trungtv/
+
 Co-Mentor: KS. Lê Quang Hiếu. Viện nghiên cứu và phát triển Viettel (Viettel R&D). Email: hieulq19[AT]gmail.com
 
 Thành viên nhóm:
-Trần Sỹ Đạt - dattbbk@gmail.com
-Trần Hữu Cường - tranhuucuong91@gmail.com
-Lê Công Tuấn - tuancnttbk93@gmail.com
+1. Trần Sỹ Đạt - dattbbk@gmail.com
+2. Trần Hữu Cường - tranhuucuong91@gmail.com
+3. Lê Công Tuấn - tuancnttbk93@gmail.com
