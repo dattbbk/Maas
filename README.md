@@ -15,8 +15,8 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 
 **Issues dự án:** https://github.com/dattbbk/Maas/issues
 
-**Lịch sử hoạt động nhóm:** h
-* ttps://github.com/dattbbk/Maas/blob/master/MHST2014_Maas_NhatKyDuAn.ods
+**Lịch sử hoạt động nhóm:** 
+* https://github.com/dattbbk/Maas/blob/master/MHST2014_Maas_NhatKyDuAn.ods
 * Hoặc https://docs.google.com/spreadsheets/d/1uGoAD6ve9Cg9I6lK9nfrzEfKqoXKx9xQNhNF-b-iDSY/edit#gid=0
 
 **Tài liệu:** https://github.com/dattbbk/Maas/tree/master/documents
