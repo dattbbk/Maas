@@ -13,6 +13,8 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 
 **Wiki dự án:**
 
+**Quản lý Issues dự án:**
+
 **Lịch sử hoạt động nhóm:**
 
 **Tài liệu hướng dẫn cài đặt và cấu hình hệ thống:**
