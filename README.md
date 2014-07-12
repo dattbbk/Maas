@@ -7,6 +7,8 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 
 **Tên dự án:** Tham gia phát triển PMNM OpenStack Sahara: phát triển dịch vụ Mahout-as-a-Service
 
+**Wiki ý tưởng:** http://wiki.vfossa.vn/mhst:ideas:mhst2014:maas
+
 **Thời gian thực hiện:** Từ ngày 14/6/2014 đến hết ngày 26/9/2014
 
 **Quản lý công việc tại:** https://trello.com/b/BEkARgZz/mhst-2014-icse-bach-khoa-ha-n-i
