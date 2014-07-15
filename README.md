@@ -32,5 +32,4 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 
 **Thành viên nhóm:**
 - Trần Sỹ Đạt. Email: dattbbk@gmail.com 
-- Trần Hữu Cường. Email: tranhuucuong91@gmail.com
 - Lê Công Tuấn. Email: tuancnttbk93@gmail.com
