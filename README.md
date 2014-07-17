@@ -9,17 +9,17 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 
 **Wiki ý tưởng:** http://wiki.vfossa.vn/mhst:ideas:mhst2014:maas
 
+**Wiki dự án:** https://github.com/dattbbk/Maas/wiki
+
 **Thời gian thực hiện:** Từ ngày 14/6/2014 đến hết ngày 26/9/2014
 
 **Quản lý công việc tại:** https://trello.com/b/BEkARgZz/mhst-2014-icse-bach-khoa-ha-n-i
 
-**Wiki dự án:** https://github.com/dattbbk/Maas/wiki
-
-**Issues dự án:** https://github.com/dattbbk/Maas/issues
-
 **Nhật ký dự án:** 
 * https://github.com/dattbbk/Maas/blob/master/MHST2014_Maas_NhatKyDuAn.ods
 * Hoặc https://docs.google.com/spreadsheets/d/1uGoAD6ve9Cg9I6lK9nfrzEfKqoXKx9xQNhNF-b-iDSY/edit#gid=0
+
+**Issues dự án:** https://github.com/dattbbk/Maas/issues
 
 **Tài liệu:** https://github.com/dattbbk/Maas/tree/master/documents
 
