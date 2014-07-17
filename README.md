@@ -15,6 +15,8 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 
 **Quản lý công việc tại:** https://trello.com/b/BEkARgZz/mhst-2014-icse-bach-khoa-ha-n-i
 
+**Mailing list:** https://groups.google.com/forum/?hl=vi#!forum/mhst-2014
+
 **Nhật ký dự án:** 
 * https://github.com/dattbbk/Maas/blob/master/MHST2014_Maas_NhatKyDuAn.ods
 * Hoặc https://docs.google.com/spreadsheets/d/1uGoAD6ve9Cg9I6lK9nfrzEfKqoXKx9xQNhNF-b-iDSY/edit#gid=0
