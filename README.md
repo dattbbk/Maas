@@ -33,7 +33,7 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 * Co-Mentor: KS. Lê Quang Hiếu. Viện nghiên cứu và phát triển Viettel (Viettel R&D). Email: hieulq19@gmail.com
 
 **Thành viên nhóm:**
-- Trần Sỹ Đạt.\t      Email: dattbbk@gmail.com
+- Trần Sỹ Đạt. \t     Email: dattbbk@gmail.com
 - Lê Đại Cát.       Email: daicatqn892@gmail.com
 - Lê Công Tuấn.     Email: tuancnttbk93@gmail.com
 - Lê Quyết Thắng.   Email: thang.itbk@gmail.com
