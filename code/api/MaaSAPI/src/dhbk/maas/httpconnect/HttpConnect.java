@@ -31,7 +31,7 @@ public class HttpConnect {
 			for(Header header : headers) 
 				request.addHeader(header);
 		}
-//		request.addHeader("Accept", "application/xml");
+		request.addHeader("Accept", "application/json");
 		return httpClient.execute(request) ;
 	}
 	
