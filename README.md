@@ -25,10 +25,8 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 
 **Tài liệu:** https://github.com/dattbbk/Maas/tree/master/documents
 Maas 
-|__
 |
-
-
+__
 
 
 **Link thử nghiệm hệ thống:**
