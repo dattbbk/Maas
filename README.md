@@ -23,7 +23,7 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 
 **Kho mã nguồn và tài liệu:** https://github.com/dattbbk/Maas
 
-**Cấu trúc thư mục docs:**
+**Cấu trúc thư mục docs:** https://github.com/dattbbk/Maas/tree/master/docs
 
 * openstack: 
   - MHST2014_MaaS_Install_Openstack_Icehouse_ICSE: Hướng dẫn cài đặt hệ thống Openstack
@@ -39,7 +39,7 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 * appmobile:
   - MHST2014_MaaS_Guide-use-app-mobie: Tài liệu hướng dẫn sử dụng ứng dụng trên thiết bị di động cho chức năng giám sát công việc của Mahout
 
-**Cấu trúc thư mục code:**
+**Cấu trúc thư mục code:** https://github.com/dattbbk/Maas/tree/master/code
 
 * api:
   - MaaSAPI:
