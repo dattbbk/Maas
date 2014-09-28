@@ -1,12 +1,27 @@
+/************************************************************************
+ * Copyright 2014	Le Dai Cat, Tran Sy Dat
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * 	http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+
+***************************************************************************/
 package dhbk.maas.api.hadoop.monitor;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -85,13 +100,15 @@ public class HistoryServer {
 		
 		HttpResponse response = httpConnect.sendRequestGet(this.url, null) ;
 		
-		if(response.getStatusLine().getStatusCode() == 200) {
+		if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 			
-			StringBuffer buff = readerResponse(response) ;
-			
-			JSONObject jso = new JSONObject(buff.toString().substring(15, buff.length() - 1)) ;
-			hisInfo = new HistoryInfo(jso.getString(HIS_INFO_STARTEDON), jso.getString(HIS_INFO_HADOOPVERSIONBUILTON), 
-					jso.getString(HIS_INFO_HADOOPBUILTVERSION), jso.getString(HIS_INFO_HADOOPVERSION)) ;
+			String buff = EntityUtils.toString(response.getEntity()) ;
+			if(buff.length() > 15 ) {
+				JSONObject jso_parent = new JSONObject(buff) ;
+				JSONObject jso = jso_parent.getJSONObject("historyInfo") ;
+				hisInfo = new HistoryInfo(jso.getString(HIS_INFO_STARTEDON), jso.getString(HIS_INFO_HADOOPVERSIONBUILTON), 
+						jso.getString(HIS_INFO_HADOOPBUILTVERSION), jso.getString(HIS_INFO_HADOOPVERSION)) ;
+			}
 		}
 		
 		return hisInfo ;
@@ -111,18 +128,21 @@ public class HistoryServer {
 				
 		HttpResponse response = httpConnect.sendRequestGet(this.url, null) ;
 		
-		if(response.getStatusLine().getStatusCode() == 200) {
+		if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 		
-			StringBuffer buff = readerResponse(response) ;
-			
-			JSONArray jsaHis = new JSONArray(buff.toString().substring(15, buff.length() - 2));
-			for(int i = 0; i < jsaHis.length(); i++) {
-				JSONObject jso = jsaHis.getJSONObject(i);
-				historyJobs.add(new HistoryJob(jso.getString(HIS_SUBMITTIME), jso.getString(HIS_STATE), jso.getString(HIS_USER), 
-												jso.getString(HIS_REDUCESTOTAL), jso.getString(HIS_MAPSCOMPLETED), 
-												jso.getString(HIS_STARTTIME), jso.getString(HIS_ID), jso.getString(HIS_NAME), 
-												jso.getString(HIS_REDUCESCOMPLETED), jso.getString(HIS_MAPSTOTAL), 
-												jso.getString(HIS_QUEUE), jso.getString(HIS_FINISHTIME))) ;
+			String buff = EntityUtils.toString(response.getEntity()) ;
+			if(buff.length() > 15 ) {
+				JSONObject jso_parent = new JSONObject(buff) ;
+				JSONObject jso_jobs = jso_parent.getJSONObject("jobs") ;
+				JSONArray jsaHis = jso_jobs.getJSONArray("job") ;
+				for(int i = 0; i < jsaHis.length(); i++) {
+					JSONObject jso = jsaHis.getJSONObject(i);
+					historyJobs.add(new HistoryJob(jso.getString(HIS_SUBMITTIME), jso.getString(HIS_STATE), jso.getString(HIS_USER), 
+													jso.getString(HIS_REDUCESTOTAL), jso.getString(HIS_MAPSCOMPLETED), 
+													jso.getString(HIS_STARTTIME), jso.getString(HIS_ID), jso.getString(HIS_NAME), 
+													jso.getString(HIS_REDUCESCOMPLETED), jso.getString(HIS_MAPSTOTAL), 
+													jso.getString(HIS_QUEUE), jso.getString(HIS_FINISHTIME))) ;
+				}
 			}
 		}
 		
@@ -144,15 +164,19 @@ public class HistoryServer {
 		
 		HttpResponse response = httpConnect.sendRequestGet(this.url, null) ;
 		
-		if(response.getStatusLine().getStatusCode() == 200) {
+		if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 		
-			StringBuffer buff = readerResponse(response) ;
-			JSONArray jsaTasks = new JSONArray(buff.toString().substring(17, buff.length() - 2)) ;
-			for (int i = 0; i < jsaTasks.length() ; i++) {
-				JSONObject jso = jsaTasks.getJSONObject(i);
-				historyJobTasks.add(new HistoryJobTask(jso.getString(HIS_JOB_TASK_PROGRESS), jso.getString(HIS_JOB_TASK_ELAPSEDTIME),
-						jso.getString(HIS_JOB_TASK_STATE), jso.getString(HIS_JOB_TASK_STARTTIME), jso.getString(HIS_JOB_TASK_ID), 
-						jso.getString(HIS_JOB_TASK_TYPE), jso.getString(HIS_JOB_TASK_SUCCESSFULATTEMPT), jso.getString(HIS_JOB_TASK_FINISHTIME)));
+			String buff = EntityUtils.toString(response.getEntity()) ;
+			if(buff.length() > 17 ) {
+				JSONObject jso_parent = new JSONObject(buff) ;
+				JSONObject jso_tasks = jso_parent.getJSONObject("tasks") ;
+				JSONArray jsaTasks = jso_tasks.getJSONArray("task") ;
+				for (int i = 0; i < jsaTasks.length() ; i++) {
+					JSONObject jso = jsaTasks.getJSONObject(i);
+					historyJobTasks.add(new HistoryJobTask(jso.getString(HIS_JOB_TASK_PROGRESS), jso.getString(HIS_JOB_TASK_ELAPSEDTIME),
+							jso.getString(HIS_JOB_TASK_STATE), jso.getString(HIS_JOB_TASK_STARTTIME), jso.getString(HIS_JOB_TASK_ID), 
+							jso.getString(HIS_JOB_TASK_TYPE), jso.getString(HIS_JOB_TASK_SUCCESSFULATTEMPT), jso.getString(HIS_JOB_TASK_FINISHTIME)));
+				}
 			}
 			
 		}
@@ -160,15 +184,4 @@ public class HistoryServer {
 		return historyJobTasks ;
 	}
 	
-	
-	private StringBuffer readerResponse (HttpResponse response) throws IOException {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-		StringBuffer buff = new StringBuffer();
-		String line = "";
-		while ((line = reader.readLine()) != null) {
-			buff.append(line) ;
-		}
-		
-		return buff;
-	}
 }

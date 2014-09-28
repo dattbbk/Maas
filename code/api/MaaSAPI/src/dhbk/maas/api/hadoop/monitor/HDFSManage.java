@@ -1,12 +1,27 @@
+/************************************************************************
+ * Copyright 2014	Le Dai Cat, Tran Sy Dat
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * 	http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+
+***************************************************************************/
 package dhbk.maas.api.hadoop.monitor;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -65,31 +80,24 @@ public class HDFSManage {
 		
 		HttpResponse response = httpConnect.sendRequestGet(this.url, null) ;
 		
-		if(response.getStatusLine().getStatusCode() == 200) {
+		if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 		
-			StringBuffer buff = readerResponse(response) ;
-			
-			JSONArray jsaHis = new JSONArray(buff.toString().substring(30, buff.length() - 2));
-			for(int i = 0; i < jsaHis.length(); i++) {
-				JSONObject jso = jsaHis.getJSONObject(i);
-				listADirectory.add(new ListADirectory(jso.getString(LISTADIRECTORY_ACCESSTIME), jso.getString(LISTADIRECTORY_BLOCKSIZE), 
-						jso.getString(LISTADIRECTORY_GROUP), jso.getString(LISTADIRECTORY_LENGTH), jso.getString(LISTADIRECTORY_MODIFICATIONTIME), 
-						jso.getString(LISTADIRECTORY_OWNER), jso.getString(LISTADIRECTORY_PATHSUFFIX), jso.getString(LISTADIRECTORY_PERMISSION), 
-						jso.getString(LISTADIRECTORY_REPLICATION), jso.getString(LISTADIRECTORY_TYPE))) ;
+			String buff = EntityUtils.toString(response.getEntity()) ;
+			if(buff.length() > 30 ) {
+				JSONObject jso_parent = new JSONObject(buff) ;
+				JSONObject jso_filestatuses = jso_parent.getJSONObject("FileStatuses");
+				JSONArray jsaHis = jso_filestatuses.getJSONArray("FileStatus") ;
+				for(int i = 0; i < jsaHis.length(); i++) {
+					JSONObject jso = jsaHis.getJSONObject(i);
+					listADirectory.add(new ListADirectory(jso.getString(LISTADIRECTORY_ACCESSTIME), jso.getString(LISTADIRECTORY_BLOCKSIZE), 
+							jso.getString(LISTADIRECTORY_GROUP), jso.getString(LISTADIRECTORY_LENGTH), jso.getString(LISTADIRECTORY_MODIFICATIONTIME), 
+							jso.getString(LISTADIRECTORY_OWNER), jso.getString(LISTADIRECTORY_PATHSUFFIX), jso.getString(LISTADIRECTORY_PERMISSION), 
+							jso.getString(LISTADIRECTORY_REPLICATION), jso.getString(LISTADIRECTORY_TYPE))) ;
+				}
 			}
 		}
 		
 		return listADirectory ;
 	}
 	
-	private StringBuffer readerResponse (HttpResponse response) throws IOException {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-		StringBuffer buff = new StringBuffer();
-		String line = "";
-		while ((line = reader.readLine()) != null) {
-			buff.append(line) ;
-		}
-		
-		return buff;
-	}
 }

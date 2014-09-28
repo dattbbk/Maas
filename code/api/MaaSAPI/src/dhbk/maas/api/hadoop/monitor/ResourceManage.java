@@ -1,14 +1,29 @@
+/************************************************************************
+ * Copyright 2014	Le Dai Cat, Tran Sy Dat
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * 	http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+
+***************************************************************************/
 package dhbk.maas.api.hadoop.monitor;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,7 +33,7 @@ import dhbk.maas.api.httpconnect.HttpConnect;
 
 public class ResourceManage {
 
-	private static final String HTTP = "http://";
+	public static final String HTTP = "http://";
 	private static final String REMNG_CLUSTER_APPS_PATH = "/ws/v1/cluster/apps" ;
 	
 	public static final String REMNG_CLUSTER_APP_FINISHEDTIME = "finishedTime";
@@ -41,7 +56,7 @@ public class ResourceManage {
 	public static final String REMNG_CLUSTER_APP_ALLOCATEDVCORES = "allocatedVCores";
 	public static final String REMNG_CLUSTER_APP_RUNNINGCONTAINERS = "runningContainers";
 	
-	private static final String DEFAULT_PORT = "8088";
+	public static final String DEFAULT_PORT = "8088";
 	
 	private String url;
 	private String address;
@@ -67,45 +82,48 @@ public class ResourceManage {
 	 * @throws IOException
 	 * @throws JSONException
 	 */
-	public ArrayList<ReMngClusterApp> getClusterApps (int nTop) throws IOException, JSONException {
+	public ArrayList<ReMngClusterApp> getClusterApps () throws IOException, JSONException {
 		ArrayList<ReMngClusterApp> clusterApps = new ArrayList<>() ;
 		
 		this.url = HTTP + this.address + ":" + this.port + REMNG_CLUSTER_APPS_PATH ;
 		
 		HttpResponse response = httpConnect.sendRequestGet(this.url, null) ;
 		
-		if(response.getStatusLine().getStatusCode() == 200) {
+		if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 			
-			StringBuffer buff = readerResponse(response) ;
-			JSONArray jsaClusterApps = new JSONArray(buff.toString().substring(15, buff.length() - 2));
-			
-//			int n = nTop < jsaClusterApps.length() ? nTop : jsaClusterApps.length() ;
-			for(int i = 0 ; i < jsaClusterApps.length(); i++) {
-				JSONObject jsoClusterApp = jsaClusterApps.getJSONObject(i) ;
+			String buff = EntityUtils.toString(response.getEntity()) ;
+			if(buff.length() > 15 ) {
+				JSONObject jso_parent = new JSONObject(buff) ;
+				JSONObject jso_apps = jso_parent.getJSONObject("apps") ;
+				JSONArray jsaClusterApps = jso_apps.getJSONArray("app") ;
 				
-				clusterApps.add(new ReMngClusterApp(jsoClusterApp.getString(REMNG_CLUSTER_APP_FINISHEDTIME), 
-						jsoClusterApp.getString(REMNG_CLUSTER_APP_AMCONTAINERLOGS), jsoClusterApp.getString(REMNG_CLUSTER_APP_TRACKINGUI), 
-						jsoClusterApp.getString(REMNG_CLUSTER_APP_STATE), jsoClusterApp.getString(REMNG_CLUSTER_APP_USER), 
-						jsoClusterApp.getString(REMNG_CLUSTER_APP_ID), jsoClusterApp.getString(REMNG_CLUSTER_APP_CLUSTERID), 
-						jsoClusterApp.getString(REMNG_CLUSTER_APP_FINALSTATUS), jsoClusterApp.getString(REMNG_CLUSTER_APP_AMHOSTHTTPADDRESS), 
-						jsoClusterApp.getString(REMNG_CLUSTER_APP_PROGRESS), jsoClusterApp.getString(REMNG_CLUSTER_APP_NAME), 
-						jsoClusterApp.getString(REMNG_CLUSTER_APP_STARTEDTIME), jsoClusterApp.getString(REMNG_CLUSTER_APP_ELAPSEDTIME), 
-						jsoClusterApp.getString(REMNG_CLUSTER_APP_DIAGNOSTICS),  jsoClusterApp.getString(REMNG_CLUSTER_APP_TRACKINGURL), 
-						jsoClusterApp.getString(REMNG_CLUSTER_APP_QUEUE), jsoClusterApp.getString(REMNG_CLUSTER_APP_ALLOCATEDMB), 
-						jsoClusterApp.getString(REMNG_CLUSTER_APP_ALLOCATEDVCORES), jsoClusterApp.getString(REMNG_CLUSTER_APP_RUNNINGCONTAINERS)));
-				
-			}
-			
-			if(clusterApps.size() > 0) {
-				Collections.sort(clusterApps, new Comparator<ReMngClusterApp>() {
-
-					@Override
-					public int compare(ReMngClusterApp o1, ReMngClusterApp o2) {
-						// TODO Auto-generated method stub
-						return o1.id.compareToIgnoreCase(o2.id);
-					}
+				for(int i = 0 ; i < jsaClusterApps.length(); i++) {
+					JSONObject jsoClusterApp = jsaClusterApps.getJSONObject(i) ;
 					
-				});
+					clusterApps.add(new ReMngClusterApp(jsoClusterApp.getString(REMNG_CLUSTER_APP_FINISHEDTIME), 
+							jsoClusterApp.getString(REMNG_CLUSTER_APP_AMCONTAINERLOGS), jsoClusterApp.getString(REMNG_CLUSTER_APP_TRACKINGUI), 
+							jsoClusterApp.getString(REMNG_CLUSTER_APP_STATE), jsoClusterApp.getString(REMNG_CLUSTER_APP_USER), 
+							jsoClusterApp.getString(REMNG_CLUSTER_APP_ID), jsoClusterApp.getString(REMNG_CLUSTER_APP_CLUSTERID), 
+							jsoClusterApp.getString(REMNG_CLUSTER_APP_FINALSTATUS), jsoClusterApp.getString(REMNG_CLUSTER_APP_AMHOSTHTTPADDRESS), 
+							jsoClusterApp.getString(REMNG_CLUSTER_APP_PROGRESS), jsoClusterApp.getString(REMNG_CLUSTER_APP_NAME), 
+							jsoClusterApp.getString(REMNG_CLUSTER_APP_STARTEDTIME), jsoClusterApp.getString(REMNG_CLUSTER_APP_ELAPSEDTIME), 
+							jsoClusterApp.getString(REMNG_CLUSTER_APP_DIAGNOSTICS),  jsoClusterApp.getString(REMNG_CLUSTER_APP_TRACKINGURL), 
+							jsoClusterApp.getString(REMNG_CLUSTER_APP_QUEUE), jsoClusterApp.getString(REMNG_CLUSTER_APP_ALLOCATEDMB), 
+							jsoClusterApp.getString(REMNG_CLUSTER_APP_ALLOCATEDVCORES), jsoClusterApp.getString(REMNG_CLUSTER_APP_RUNNINGCONTAINERS)));
+					
+				}
+				
+				if(clusterApps.size() > 0) {
+					Collections.sort(clusterApps, new Comparator<ReMngClusterApp>() {
+	
+						@Override
+						public int compare(ReMngClusterApp o1, ReMngClusterApp o2) {
+							// TODO Auto-generated method stub
+							return o1.id.compareToIgnoreCase(o2.id);
+						}
+						
+					});
+				}
 			}
 		}
 		
@@ -124,39 +142,30 @@ public class ResourceManage {
 	public ReMngClusterApp getClusterApp (String appId) throws ClientProtocolException, IOException, JSONException {
 		ReMngClusterApp clusterApp = null;
 		
-		this.url = HTTP + this.address + ":" + this.port + REMNG_CLUSTER_APPS_PATH + appId;
+		this.url = HTTP + this.address + ":" + this.port + REMNG_CLUSTER_APPS_PATH + "/" + appId;
 		
 		HttpResponse response = httpConnect.sendRequestGet(this.url, null) ;
 		
-		if(response.getStatusLine().getStatusCode() == 200) {
+		if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 			
-			StringBuffer buff = readerResponse(response) ;
-			
-			JSONObject jsoClusterApp = new JSONObject(buff.toString().substring(7, buff.length() - 1));
-			
-			clusterApp = new ReMngClusterApp(jsoClusterApp.getString(REMNG_CLUSTER_APP_FINISHEDTIME), 
-					jsoClusterApp.getString(REMNG_CLUSTER_APP_AMCONTAINERLOGS), jsoClusterApp.getString(REMNG_CLUSTER_APP_TRACKINGUI), 
-					jsoClusterApp.getString(REMNG_CLUSTER_APP_STATE), jsoClusterApp.getString(REMNG_CLUSTER_APP_USER), 
-					jsoClusterApp.getString(REMNG_CLUSTER_APP_ID), jsoClusterApp.getString(REMNG_CLUSTER_APP_CLUSTERID), 
-					jsoClusterApp.getString(REMNG_CLUSTER_APP_FINALSTATUS), jsoClusterApp.getString(REMNG_CLUSTER_APP_AMHOSTHTTPADDRESS), 
-					jsoClusterApp.getString(REMNG_CLUSTER_APP_PROGRESS), jsoClusterApp.getString(REMNG_CLUSTER_APP_NAME), 
-					jsoClusterApp.getString(REMNG_CLUSTER_APP_STARTEDTIME), jsoClusterApp.getString(REMNG_CLUSTER_APP_ELAPSEDTIME), 
-					jsoClusterApp.getString(REMNG_CLUSTER_APP_DIAGNOSTICS), jsoClusterApp.getString(REMNG_CLUSTER_APP_TRACKINGURL), 
-					jsoClusterApp.getString(REMNG_CLUSTER_APP_QUEUE), "", "", "");
+			String buff = EntityUtils.toString(response.getEntity()) ;
+			if(buff.length() > 7 ) {
+				JSONObject jso_parent = new JSONObject(buff) ;
+				JSONObject jsoClusterApp = jso_parent.getJSONObject("app") ;
+				
+				clusterApp = new ReMngClusterApp(jsoClusterApp.getString(REMNG_CLUSTER_APP_FINISHEDTIME), 
+						jsoClusterApp.getString(REMNG_CLUSTER_APP_AMCONTAINERLOGS), jsoClusterApp.getString(REMNG_CLUSTER_APP_TRACKINGUI), 
+						jsoClusterApp.getString(REMNG_CLUSTER_APP_STATE), jsoClusterApp.getString(REMNG_CLUSTER_APP_USER), 
+						jsoClusterApp.getString(REMNG_CLUSTER_APP_ID), jsoClusterApp.getString(REMNG_CLUSTER_APP_CLUSTERID), 
+						jsoClusterApp.getString(REMNG_CLUSTER_APP_FINALSTATUS), jsoClusterApp.getString(REMNG_CLUSTER_APP_AMHOSTHTTPADDRESS), 
+						jsoClusterApp.getString(REMNG_CLUSTER_APP_PROGRESS), jsoClusterApp.getString(REMNG_CLUSTER_APP_NAME), 
+						jsoClusterApp.getString(REMNG_CLUSTER_APP_STARTEDTIME), jsoClusterApp.getString(REMNG_CLUSTER_APP_ELAPSEDTIME), 
+						jsoClusterApp.getString(REMNG_CLUSTER_APP_DIAGNOSTICS), jsoClusterApp.getString(REMNG_CLUSTER_APP_TRACKINGURL), 
+						jsoClusterApp.getString(REMNG_CLUSTER_APP_QUEUE), "", "", "");
+			}
 		}
 		
 		return clusterApp ;
 	}
 	
-	
-	private StringBuffer readerResponse (HttpResponse response) throws IOException {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-		StringBuffer buff = new StringBuffer();
-		String line = "";
-		while ((line = reader.readLine()) != null) {
-			buff.append(line) ;
-		}
-		
-		return buff;
-	}
 }
