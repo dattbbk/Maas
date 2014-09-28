@@ -58,7 +58,7 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 * Tích hợp các chức năng quản lý Mahout vào Sahara Dashboard
 * Phát triển thêm các APIs và chức năng khác
 
-**Link download file apk:**
+**Link download ứng dụng mobile:**
 * https://www.dropbox.com/s/0py6diuq12hwwt2/MaaSUI.apk?dl=0
 
 **Danh sách mentor:**
