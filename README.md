@@ -24,17 +24,24 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 **Kho mã nguồn và tài liệu:** https://github.com/dattbbk/Maas
 
 **Cấu trúc thư mục docs:**
+maas
+|________________________________________________
+|           |           |           |           |       
+Openstack   Sahara      api         appmobile   appweb
+
+* Openstack chứa file MHST2014_MaaS_Install_Openstack_Icehouse_ICSE.pdf: Hướng dẫn cài đặt hệ thống Openstack
+* Sahara chứa 2 file MHST2014_MaaS_Tong_quan_Sahara.pdf giới thiệu tổng quan Sahara 
+* * và file MHST2014_MaaS_Huong_dan_cai_dat_va_su_dung_Sahara.pdf hướng dẫn cài đặt, cấu hình, sử dụng Sahar và một số lỗi hay gặp phải
+* API
 
 **Cấu trúc thư mục code:**
 
 **Kết quả đạt được:**
 * Dựng được hệ thống cloud Openstack
 * Hướng dẫn cài đặt, cấu hình và sử dụng Sahara
-* Cài đặt, cấu hình Hadoop
-* Triển khai Mahout 
 * Ứng dụng mobile 
 * Ứng dụng web
-* Các APIs quản lý Hadoop, thực thi Mahout Jobs
+* Các APIs
 
 **Hướng phát triển thời gian tới:**
 * Tích hợp các chức năng quản lý Mahout vào Sahara Dashboard
