@@ -30,9 +30,11 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 **Kết quả đạt được:**
 * Dựng được hệ thống cloud Openstack
 * Hướng dẫn cài đặt, cấu hình và sử dụng Sahara
+* Cài đăt, cấu hình Hadoop
+* Triển khai Mahout 
 * Ứng dụng mobile 
 * Ứng dụng web
-* Các APIs
+* Các APIs quản lý Hadoop, thực thi Mahout Jobs
 
 **Hướng phát triển thời gian tới:**
 * Tích hợp các chức năng quản lý Mahout vào Sahara Dashboard
