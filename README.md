@@ -26,8 +26,8 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 **Cấu trúc thư mục docs:**
 * Openstack chứa file: MHST2014_MaaS_Install_Openstack_Icehouse_ICSE.pdf: Hướng dẫn cài đặt hệ thống Openstack
 * Sahara chứa 2 file: 
-* - MHST2014_MaaS_Tong_quan_Sahara.pdf giới thiệu tổng quan Sahara
-* - MHST2014_MaaS_Huong_dan_cai_dat_va_su_dung_Sahara.pdf hướng dẫn cài đặt, cấu hình, sử dụng Sahar và một số lỗi hay gặp phải
+  - MHST2014_MaaS_Tong_quan_Sahara.pdf giới thiệu tổng quan Sahara
+  - MHST2014_MaaS_Huong_dan_cai_dat_va_su_dung_Sahara.pdf hướng dẫn cài đặt, cấu hình, sử dụng Sahar và một số lỗi hay gặp phải
 * API chứa 3 tài liệu
 
 
