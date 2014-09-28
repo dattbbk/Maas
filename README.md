@@ -45,7 +45,6 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
   - MaaSServlet
 * web: Code web quản lý Mahout
 * mobile:
-![alt tag](http://prntscr.com/4r3l2i)
 
 **Kết quả đạt được:**
 * Dựng được hệ thống cloud Openstack
