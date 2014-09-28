@@ -41,10 +41,11 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 
 **Cấu trúc thư mục code:** https://github.com/dattbbk/Maas/tree/master/code
 * api:
-  - MaaSAPI:
-  - MaaSServlet
-* web: Code web quản lý Mahout
-* mobile:
+  - MaaSAPI : Code api giúp quản lý, giám sát các công việc trên Hadoop và quản lý dữ liệu trên hệ thống file HDFS
+  - MaaSServlet : Code webservice cung cấp dịch vụ thực thi các giải thuật của Mahout và dịch vụ quản lý dữ liệu kết quả của các công việc đã thực hiện
+* web : Code web quản lý Mahout
+* mobile : 
+  - MaaSUI : ứng dụng trên thiết bị di động giúp giám sát các công việc thực hiện 
 
 **Kết quả đạt được:**
 * Dựng được hệ thống cloud Openstack
