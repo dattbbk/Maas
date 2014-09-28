@@ -24,14 +24,28 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 **Kho mã nguồn và tài liệu:** https://github.com/dattbbk/Maas
 
 **Cấu trúc thư mục docs:**
-* Openstack chứa file: MHST2014_MaaS_Install_Openstack_Icehouse_ICSE.pdf: Hướng dẫn cài đặt hệ thống Openstack
-* Sahara chứa 2 file: 
-  - MHST2014_MaaS_Tong_quan_Sahara.pdf giới thiệu tổng quan Sahara
-  - MHST2014_MaaS_Huong_dan_cai_dat_va_su_dung_Sahara.pdf hướng dẫn cài đặt, cấu hình, sử dụng Sahar và một số lỗi hay gặp phải
-* API chứa 3 tài liệu
 
+* openstack: 
+  - MHST2014_MaaS_Install_Openstack_Icehouse_ICSE: Hướng dẫn cài đặt hệ thống Openstack
+* sahara: 
+  - MHST2014_MaaS_Tong_quan_Sahara: Giới thiệu tổng quan Sahara
+  - MHST2014_MaaS_Huong_dan_cai_dat_va_su_dung_Sahara: Hướng dẫn cài đặt, cấu hình, sử dụng Sahar và một số lỗi hay gặp phải
+* api:
+  - MHST2014_MaaS_lib-use: Danh sách các thư viện ngoài sử dụng trong dự án
+  - MHST2014_MaaS_Api-service-mahout-jobs: Bản thiết kế dịch vụ web phục vụ cho việc quản lý và thực thi các công việc của Mahout
+  - MHST2014_MaaS_Api-monitor-work-hadoop: Bản mô tả thiết kế api cho nhiệm vụ quản lý, giám sát các công việc trên Hadoop
+* appweb:
+  - MHST2014_MaaS_Web: Tài liệu hướng dẫn sử dụng ứng dụng trên web cho chức năng giám sát công việc của Mahout
+* appmobile:
+  - MHST2014_MaaS_Guide-use-app-mobie: Tài liệu hướng dẫn sử dụng ứng dụng trên thiết bị di động cho chức năng giám sát công việc của Mahout
 
 **Cấu trúc thư mục code:**
+
+* api:
+  - MaaSAPI:
+  - MaaSServlet
+* web: Code web quản lý Mahout
+* mobile:
 
 
 **Kết quả đạt được:**
