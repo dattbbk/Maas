@@ -19,11 +19,9 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 
 **Nhật ký dự án:** 
 * https://github.com/dattbbk/Maas/blob/master/MHST2014_Maas_NhatKyDuAn.ods
-* Hoặc https://docs.google.com/spreadsheets/d/1uGoAD6ve9Cg9I6lK9nfrzEfKqoXKx9xQNhNF-b-iDSY/edit#gid=0
+* Hoặc xem online: https://docs.google.com/spreadsheets/d/1uGoAD6ve9Cg9I6lK9nfrzEfKqoXKx9xQNhNF-b-iDSY/edit#gid=0
 
-**Issues dự án:** https://github.com/dattbbk/Maas/issues
-
-**Tài liệu:** https://github.com/dattbbk/Maas/tree/master/documents
+**Tài liệu:** https://github.com/dattbbk/Maas/tree/master/docs
 
 **Link thử nghiệm hệ thống:**
 
