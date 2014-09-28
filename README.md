@@ -58,6 +58,9 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 * Tích hợp các chức năng quản lý Mahout vào Sahara Dashboard
 * Phát triển thêm các APIs và chức năng khác
 
+**Link download file apk:**
+* https://www.dropbox.com/s/0py6diuq12hwwt2/MaaSUI.apk?dl=0
+
 **Danh sách mentor:**
 * Mentor: TS. Nguyễn Bình Minh. Giảng viên Viện công nghệ thông tin và truyền thông, Trường Đại học Bách Khoa Hà Nội. Email: minhnb@soict.hust.edu.vn. Homepage: http://is.hust.edu.vn/~minhnb
 * Co-Mentor: TS. Trần Việt Trung. Giảng viên Viện công nghệ thông tin và truyền thông, Trường Đại học Bách Khoa Hà Nội. Email: trungtv@soict.hust.edu.vn. Homepage: http://is.hust.edu.vn/~trungtv/
