@@ -21,9 +21,18 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 * https://github.com/dattbbk/Maas/blob/master/MHST2014_Maas_NhatKyDuAn.ods
 * Hoặc xem online: https://docs.google.com/spreadsheets/d/1uGoAD6ve9Cg9I6lK9nfrzEfKqoXKx9xQNhNF-b-iDSY/edit#gid=0
 
+**Kho mã nguồn và tài liệu:** https://github.com/dattbbk/Maas
+
 **Tài liệu:** https://github.com/dattbbk/Maas/tree/master/docs
 
-**Link thử nghiệm hệ thống:**
+**Kết quả đạt được:**
+* Dựng được hệ thống cloud Openstack
+* Hướng dẫn cài đặt, cấu hình và sử dụng Sahara
+* 
+
+**Hướng phát triển thời gian tới:**
+* Tích hợp các chức năng quản lý Mahout vào Sahara Dashboard
+* Phát triển thêm các APIs và chức năng khác
 
 **Danh sách mentor:**
 * Mentor: TS. Nguyễn Bình Minh. Giảng viên Viện công nghệ thông tin và truyền thông, Trường Đại học Bách Khoa Hà Nội. Email: minhnb@soict.hust.edu.vn. Homepage: http://is.hust.edu.vn/~minhnb
