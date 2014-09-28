@@ -23,7 +23,9 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 
 **Kho mã nguồn và tài liệu:** https://github.com/dattbbk/Maas
 
-**Tài liệu:** https://github.com/dattbbk/Maas/tree/master/docs
+**Cấu trúc thư mục docs:**
+
+**Cấu trúc thư mục code:**
 
 **Kết quả đạt được:**
 * Dựng được hệ thống cloud Openstack
