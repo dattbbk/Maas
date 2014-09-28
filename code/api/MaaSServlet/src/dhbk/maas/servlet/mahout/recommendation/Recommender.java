@@ -1,7 +1,20 @@
+/************************************************************************
+ * Copyright 2014	Le Dai Cat, Tran Sy Dat
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * 	http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+
+***************************************************************************/
 package dhbk.maas.servlet.mahout.recommendation;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -18,12 +31,11 @@ import javax.servlet.http.HttpServletResponse;
 public class Recommender extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	public final String cmd1 = "mahout recommenditembased -s SIMILARITY_LOGLIKELIHOOD -i ";
-	public final String cmd2 = " -o outrecommender --numRecommendations 25";
-    public final String cmdget = "hadoop fs -getmerge output /home/hadoop/outputrecommender.txt";   
+	public final String cmd1 = "/opt/mahout/bin/mahout recommenditembased -s SIMILARITY_LOGLIKELIHOOD -i ";
+	public final String cmd2 = " -o outputrecommender --numRecommendations 25";
+    public final String cmdget1 = "hadoop fs -getmerge outputrecommender /home/hadoop/";
+    public final String cmdget2 = "/outputrecommender.txt";
 	
-    //hadoop jar /home/hadoop/mahout-distribution-0.7/mahout-core-0.7-job.jar org.apache.mahout.cf.taste.hadoop.item.RecommenderJob -s SIMILARITY_COOCCURRENCE --input u.data --output outputrecommender
-    
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -44,18 +56,16 @@ public class Recommender extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		deleteFileIfNeed();
-		
 		PrintWriter out = response.getWriter() ;
 		
-		String path = request.getParameter("path");
+		String pathInput = request.getParameter("pathInput");
+		String pathOutput = request.getParameter("pathOutput") ;
 		
-		if(path != null) {
+		if(pathInput != null && pathOutput != null) {
+			deleteFileIfNeed(pathOutput);
 			
-			exc (this.cmd1 + path + this.cmd2)	;
-			
-			exc (this.cmdget) ;
+			exc (this.cmd1 + pathInput + this.cmd2)	;
+			exc (this.cmdget1 + pathOutput + this.cmdget2) ;
 			
 			out.print("SUCCESS");
 		} else {
@@ -63,11 +73,11 @@ public class Recommender extends HttpServlet {
 		}
 	}
 	
-	private void deleteFileIfNeed () {
+	private void deleteFileIfNeed (String pathOutput) {
 		try {
-			String cmd1 = "hadoop dfs -rmr outputrecommender" ;
-			String cmd2 = "hadoop dfs -rmr temp" ;
-			String cmd3 = "rm /home/hadoop/outputrecommender.txt" ;
+			String cmd1 = "hadoop fs -rmr outputrecommender" ;
+			String cmd2 = "hadoop fs -rmr temp" ;
+			String cmd3 = "rm /home/hadoop/" + pathOutput + "/outputrecommender.txt" ;
 			
 			exc (cmd1) ;
 			exc (cmd2) ;
