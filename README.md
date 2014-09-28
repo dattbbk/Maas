@@ -38,7 +38,7 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
   - MHST2014_MaaS_Web: Tài liệu hướng dẫn sử dụng ứng dụng trên web cho chức năng giám sát công việc của Mahout
 * appmobile:
   - MHST2014_MaaS_Guide-use-app-mobie: Tài liệu hướng dẫn sử dụng ứng dụng trên thiết bị di động cho chức năng giám sát công việc của Mahout
-* MHST2014_Maas_Test_case: Test case các chức năng
+* MHST2014_Maas_Test_case.ods: File test case các chức năng
 
 **Cấu trúc thư mục code:** https://github.com/dattbbk/Maas/tree/master/code
 
