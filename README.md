@@ -19,17 +19,33 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 
 **Nhật ký dự án:** 
 * https://github.com/dattbbk/Maas/blob/master/MHST2014_Maas_NhatKyDuAn.ods
-* Hoặc https://docs.google.com/spreadsheets/d/1uGoAD6ve9Cg9I6lK9nfrzEfKqoXKx9xQNhNF-b-iDSY/edit#gid=0
+* Hoặc xem online: https://docs.google.com/spreadsheets/d/1uGoAD6ve9Cg9I6lK9nfrzEfKqoXKx9xQNhNF-b-iDSY/edit#gid=0
 
-**Issues dự án:** https://github.com/dattbbk/Maas/issues
+**Kho mã nguồn và tài liệu:** https://github.com/dattbbk/Maas
 
-**Tài liệu:** https://github.com/dattbbk/Maas/tree/master/documents
+**Cấu trúc thư mục docs:**
 
-**Link thử nghiệm hệ thống:**
+**Cấu trúc thư mục code:**
+
+**Kết quả đạt được:**
+* Dựng được hệ thống cloud Openstack
+* Hướng dẫn cài đặt, cấu hình và sử dụng Sahara
+* Ứng dụng mobile 
+* Ứng dụng web
+* Các APIs
+
+**Hướng phát triển thời gian tới:**
+* Tích hợp các chức năng quản lý Mahout vào Sahara Dashboard
+* Phát triển thêm các APIs và chức năng khác
 
 **Danh sách mentor:**
 * Mentor: TS. Nguyễn Bình Minh. Giảng viên Viện công nghệ thông tin và truyền thông, Trường Đại học Bách Khoa Hà Nội. Email: minhnb@soict.hust.edu.vn. Homepage: http://is.hust.edu.vn/~minhnb
 * Co-Mentor: TS. Trần Việt Trung. Giảng viên Viện công nghệ thông tin và truyền thông, Trường Đại học Bách Khoa Hà Nội. Email: trungtv@soict.hust.edu.vn. Homepage: http://is.hust.edu.vn/~trungtv/
 * Co-Mentor: KS. Lê Quang Hiếu. Viện nghiên cứu và phát triển Viettel (Viettel R&D). Email: hieulq19@gmail.com
 
+**Thành viên nhóm:**
+* Trần Sỹ Đạt.			Email: dattbbk@gmail.com
+* Lê Đại Cát.       Email: daicatqn892@gmail.com
+* Lê Công Tuấn.     Email: tuancnttbk93@gmail.com
+* Lê Quyết Thắng.   Email: thang.itbk@gmail.com
 
