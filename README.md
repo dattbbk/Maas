@@ -46,7 +46,6 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 * web : Code web quản lý Mahout
 * mobile : 
   - MaaSUI : ứng dụng trên thiết bị di động giúp giám sát các công việc thực hiện 
-  - Link video demo : https://www.youtube.com/watch?v=rjUyvLjrfOo
 
 **Kết quả đạt được:**
 * Dựng được hệ thống cloud Openstack
@@ -55,6 +54,8 @@ Tham gia phát triển dự án mã nguồn mở OpenStack Sahara - cung cấp m
 * Ứng dụng mobile 
 * Ứng dụng web
 * Các APIs
+
+**Link video demo:** https://www.youtube.com/watch?v=rjUyvLjrfOo
 
 **Hướng phát triển thời gian tới:**
 * Tích hợp các chức năng quản lý Mahout vào Sahara Dashboard
